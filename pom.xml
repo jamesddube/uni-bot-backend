@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jamesdube</groupId>
+    <artifactId>uni-bot-backend</artifactId>
+    <packaging>pom</packaging>
+    <name>uni-bot-backend</name>
+    <description>Uni Bot Project</description>
+    <version>0.0.1</version>
+
+    <modules>
+        <module>uni-bot-parent</module>
+        <module>uni-bot-utils</module>
+        <module>uni-bot-domain</module>
+        <module>uni-bot-repository</module>
+        <module>uni-bot-integrations</module>
+        <module>uni-bot-business</module>
+        <module>uni-bot-api</module>
+    </modules>
+
+
+</project>
