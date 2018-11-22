@@ -2,3 +2,15 @@
 */**.iml
 */target/
 .idea/
+unibot-programs-app/unibot-programs-business/target/
+unibot-programs-app/unibot-programs-domain/target/
+unibot-programs-app/unibot-programs-repository/target/
+unibot-programs-app/unibot-programs-service/target/
+unibot-recommendation-app/unibot-recommendation-business/target/
+unibot-recommendation-app/unibot-recommendation-domain/target/
+unibot-recommendation-app/unibot-recommendation-repository/target/
+unibot-recommendation-app/unibot-recommendation-service/target/
+unibot-student-app/unibot-student-business/target/
+unibot-student-app/unibot-student-domain/target/
+unibot-student-app/unibot-student-repository/target/
+unibot-student-app/unibot-student-service/target/

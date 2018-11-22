@@ -12,8 +12,9 @@
     <properties>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-        <spring-boot-starter.version>1.5.16.RELEASE</spring-boot-starter.version>
+        <spring-boot-starter.version>2.0.3.RELEASE</spring-boot-starter.version>
         <javax-persistance.version>2.2.1</javax-persistance.version>
+        <mockito-all.version>1.10.19</mockito-all.version>
 
     </properties>
 
@@ -27,9 +28,24 @@
                 <type>pom</type>
             </dependency>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.eclipse.persistence</groupId>
                 <artifactId>javax.persistence</artifactId>
                 <version>${javax-persistance.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito-all.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot-starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -12,5 +12,13 @@
 
     <artifactId>unibot-student-service</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.jamesdube</groupId>
+            <artifactId>unibot-utils</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
