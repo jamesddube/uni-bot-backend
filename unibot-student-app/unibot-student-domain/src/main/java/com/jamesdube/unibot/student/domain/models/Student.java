@@ -3,22 +3,30 @@ package com.jamesdube.unibot.student.domain.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "students")
 public class Student {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
+    @Column
     private String firstName;
 
+    @Column
     private String lastName;
 
+    @Column
     private String idNumber;
 
+    @Column
     private String gender;
 
-    public Student(){}
+    public Student() {
+    }
 
-    public Student(String firstName, String lastName) {
-
+    public Student(Long id, String firstName, String lastName) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
