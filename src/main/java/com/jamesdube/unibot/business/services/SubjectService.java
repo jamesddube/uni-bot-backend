@@ -1,7 +1,7 @@
 package com.jamesdube.unibot.business.services;
 
 import com.jamesdube.unibot.domain.Subject;
-import com.jamesdube.unibot.utils.enums.SubjectCategory;
+import com.jamesdube.unibot.utils.enums.Classification;
 
 import java.util.Objects;
 
@@ -11,23 +11,23 @@ public class SubjectService {
 
         Subject maths = new Subject();
         maths.setName("Mathematics");
-        maths.setSubjectCategory(SubjectCategory.SCIENCES);
+        maths.setClassification(Classification.SCIENCES);
 
         Subject physics = new Subject();
         physics.setName("Physics");
-        physics.setSubjectCategory(SubjectCategory.SCIENCES);
+        physics.setClassification(Classification.SCIENCES);
 
         Subject geo = new Subject();
         geo.setName("Geography");
-        geo.setSubjectCategory(SubjectCategory.COMMERCIALS);
+        geo.setClassification(Classification.COMMERCIALS);
 
         Subject businessStudies = new Subject();
         businessStudies.setName("Business Studies");
-        businessStudies.setSubjectCategory(SubjectCategory.COMMERCIALS);
+        businessStudies.setClassification(Classification.COMMERCIALS);
 
         Subject accounting = new Subject();
         accounting.setName("Accounting");
-        accounting.setSubjectCategory(SubjectCategory.COMMERCIALS);
+        accounting.setClassification(Classification.COMMERCIALS);
 
         if (Objects.equals(code, "AMTM")) return maths;
         if (Objects.equals(code, "APHY")) return physics;

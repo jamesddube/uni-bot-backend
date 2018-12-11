@@ -2,6 +2,7 @@ package com.jamesdube.unibot.controllers;
 
 import com.jamesdube.unibot.utils.requests.RecommendationRequest;
 import com.jamesdube.unibot.business.services.RecommendationService;
+import com.jamesdube.unibot.utils.response.RecommendationResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,14 +17,15 @@ public class RecommendationController {
     }
 
     @PostMapping("/recommendation")
-    public void create(@RequestBody RecommendationRequest recommendationRequest){
+    public RecommendationResponse create(@RequestBody RecommendationRequest recommendationRequest){
 
         System.out.println("incoming request: " + recommendationRequest.toString());
 
-        System.out.println("pre recoo: ");
-        recommendationService
+        RecommendationResponse response = recommendationService
               .createRecommendation(recommendationRequest);
 
+        System.out.println("response : " + response.toString());
+        return response;
 
     }
 }

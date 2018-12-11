@@ -9,6 +9,14 @@ public class SubjectRequest {
 
     private int points;
 
+    public SubjectRequest() {
+    }
+
+    public SubjectRequest(String code, int points) {
+        this.code = code;
+        this.points = points;
+    }
+
     public String getCode() {
         return code;
     }

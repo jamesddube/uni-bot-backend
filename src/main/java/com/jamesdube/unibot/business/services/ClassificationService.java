@@ -1,14 +1,14 @@
 package com.jamesdube.unibot.business.services;
 
 import com.jamesdube.unibot.domain.Subject;
-import com.jamesdube.unibot.utils.enums.SubjectCategory;
+import com.jamesdube.unibot.utils.enums.Classification;
 import com.jamesdube.unibot.utils.requests.SubjectRequest;
 
 import java.util.List;
 
-import static com.jamesdube.unibot.utils.enums.SubjectCategory.ARTS;
-import static com.jamesdube.unibot.utils.enums.SubjectCategory.COMMERCIALS;
-import static com.jamesdube.unibot.utils.enums.SubjectCategory.SCIENCES;
+import static com.jamesdube.unibot.utils.enums.Classification.ARTS;
+import static com.jamesdube.unibot.utils.enums.Classification.COMMERCIALS;
+import static com.jamesdube.unibot.utils.enums.Classification.SCIENCES;
 
 public class ClassificationService {
 
@@ -18,7 +18,7 @@ public class ClassificationService {
         this.subjectService = subjectService;
     }
 
-    public SubjectCategory calculateCategory(List<SubjectRequest> subjectRequests){
+    public Classification calculateCategory(List<SubjectRequest> subjectRequests){
 
         int commercial = 0;
         int sciences =0;
@@ -31,7 +31,7 @@ public class ClassificationService {
             Subject subject = subjectService.getDegreeByCode(code);
 
             switch (subject
-                    .getSubjectCategory()) {
+                    .getClassification()) {
                 case ARTS:
                     arts ++;
                     System.out.println("adding point for ARTS subject : " + subject.getName());

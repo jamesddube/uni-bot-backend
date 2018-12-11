@@ -1,6 +1,6 @@
 package com.jamesdube.unibot.domain;
 
-import com.jamesdube.unibot.utils.enums.SubjectCategory;
+import com.jamesdube.unibot.utils.enums.Classification;
 import com.jamesdube.unibot.utils.enums.SubjectType;
 import lombok.Data;
 
@@ -11,7 +11,7 @@ public class Subject {
 
     private SubjectType subjectType;
 
-    private SubjectCategory subjectCategory;
+    private Classification classification;
 
 
     @Override
@@ -19,7 +19,7 @@ public class Subject {
         return "Subject{" +
                 "name='" + name + '\'' +
                 ", subjectType=" + subjectType +
-                ", subjectCategory=" + subjectCategory +
+                ", classification=" + classification +
                 '}';
     }
 }
