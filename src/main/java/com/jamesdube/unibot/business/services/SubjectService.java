@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class SubjectService {
 
-    public Subject getDegreeByCode(String code) {
+    public Subject getSubjectByCode(String code) {
 
         Subject maths = new Subject();
         maths.setName("Mathematics");

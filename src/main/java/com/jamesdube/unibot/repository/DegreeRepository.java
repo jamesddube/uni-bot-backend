@@ -8,5 +8,5 @@ import java.util.stream.Stream;
 
 public interface DegreeRepository extends JpaRepository<Degree,Long>{
 
-    Stream<Degree> findDegreeByCategory(Classification category);
+    Stream<Degree> findDegreeByClassification(Classification classification);
 }

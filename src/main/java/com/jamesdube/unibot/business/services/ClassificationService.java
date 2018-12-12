@@ -28,7 +28,7 @@ public class ClassificationService {
 
             String code = subjectRequest.getCode();
 
-            Subject subject = subjectService.getDegreeByCode(code);
+            Subject subject = subjectService.getSubjectByCode(code);
 
             switch (subject
                     .getClassification()) {

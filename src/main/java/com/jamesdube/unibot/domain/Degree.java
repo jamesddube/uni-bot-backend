@@ -1,26 +1,39 @@
 package com.jamesdube.unibot.domain;
 
-import com.jamesdube.unibot.utils.enums.DegreeCategory;
+import com.jamesdube.unibot.utils.enums.Classification;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Data
 @Entity
 public class Degree {
 
     @Id
-    Long id;
+    private Long id;
 
     @Column
-    String code;
+    private String code;
 
     @Column
-    String name;
+    private String name;
 
     @Column
-    DegreeCategory category;
+    private Classification classification;
 
     @Column
-    int minimumPoints;
+    private int minimumPoints;
+
+    public Degree() {
+    }
+
+    public Degree(Long id, String code, String name, Classification classification, int minimumPoints) {
+        this.id = id;
+        this.code = code;
+        this.name = name;
+        this.classification = classification;
+        this.minimumPoints = minimumPoints;
+    }
 }

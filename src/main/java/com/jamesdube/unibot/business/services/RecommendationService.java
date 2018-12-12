@@ -40,10 +40,11 @@ public class RecommendationService {
 
         Classification classification = classificationService.calculateCategory(subjectRequests);
 
-        List<Degree> degrees = degreeMatcherService.getDegree(classification,points);
+        List<Degree> degrees = degreeMatcherService.getDegrees(classification,points);
 
         response.setPoints(points);
         response.setClassification(classification);
+        response.setDegrees(degrees);
 
         return response;
 
