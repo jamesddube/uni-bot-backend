@@ -1,6 +1,7 @@
 package com.jamesdube.unibot.config;
 
 import com.jamesdube.unibot.business.services.*;
+import com.jamesdube.unibot.repository.DegreeRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +14,8 @@ public class UnibotConfig {
     public PointsService pointsService(){return new PointsService();}
 
     @Bean
-    public DegreeMatcherService degreeMatcherService(){return new DegreeMatcherService();}
+    public DegreeMatcherService degreeMatcherService(DegreeRepository degreeRepository){
+        return new DegreeMatcherService(degreeRepository);}
 
     @Bean
     public ClassificationService classificationService(SubjectService subjectService){

@@ -3,6 +3,7 @@ package com.jamesdube.unibot.controllers;
 import com.jamesdube.unibot.utils.requests.RecommendationRequest;
 import com.jamesdube.unibot.business.services.RecommendationService;
 import com.jamesdube.unibot.utils.response.RecommendationResponse;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,4 +29,10 @@ public class RecommendationController {
         return response;
 
     }
+
+    /*@ExceptionHandler(Exception.class)
+    public String handleError(){
+        return "an error occured";
+    }*/
+
 }

@@ -22,6 +22,8 @@ import org.springframework.web.context.WebApplicationContext;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.jamesdube.unibot.utils.enums.Classification.ARTS;
+import static com.jamesdube.unibot.utils.enums.Classification.COMMERCIALS;
 import static com.jamesdube.unibot.utils.enums.Classification.SCIENCES;
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -45,6 +47,7 @@ public class RecommendationTests {
     @Before
     public void setup() throws Exception {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.webApplicationContext).build();
+        degreeRepository.deleteAll();
     }
 
 
@@ -79,11 +82,14 @@ public class RecommendationTests {
 
         degreeRepository.saveAll(
                 Arrays.asList(
-                        new Degree(1L,"HINFO","INFORMATION SYSTEMS",SCIENCES,5),
-                        new Degree(2L,"HCS","COMPUTER SCIENCE",SCIENCES,7),
-                        new Degree(3L,"HFSC","FOOD SCIENCE",SCIENCES,3))
+                        new Degree(1L,"ACC","ACCOUNTING",COMMERCIALS,5),
+                        new Degree(2L,"BUS","BUSINESS STUDIES",COMMERCIALS,5),
+                        new Degree(3L,"HENG","ENGLISH STUDIES",ARTS,5),
+                        new Degree(4L,"HINFO","INFORMATION SYSTEMS",SCIENCES,5),
+                        new Degree(5L,"HCS","COMPUTER SCIENCE",SCIENCES,7),
+                        new Degree(6L,"HFSC","FOOD SCIENCE",SCIENCES,3))
                 );
-        Assert.assertEquals(3, degreeRepository.findAll().size());
+        Assert.assertEquals(6, degreeRepository.findAll().size());
 
         Gson gson = new Gson();
         RecommendationRequest recommendationRequest = new RecommendationRequest();
@@ -98,9 +104,10 @@ public class RecommendationTests {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.degrees").isArray())
-                .andExpect(jsonPath("$.degrees",hasSize(2)))
-                .andExpect(jsonPath("$.degrees[0].minimumPoints").value(isIn(Arrays.asList(5,7))))
-                .andExpect(jsonPath("$.degrees[1].minimumPoints").value(isIn(Arrays.asList(5,7))));
+                .andExpect(jsonPath("$.degrees",hasSize(3)))
+                .andExpect(jsonPath("$.degrees[0].minimumPoints").value(isIn(Arrays.asList(5,7,3))))
+                .andExpect(jsonPath("$.degrees[1].minimumPoints").value(isIn(Arrays.asList(5,7,3))))
+                .andExpect(jsonPath("$.degrees[2].minimumPoints").value(isIn(Arrays.asList(5,7,3))));
 
     }
 }

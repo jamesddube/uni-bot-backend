@@ -2,13 +2,15 @@ package com.jamesdube.unibot.domain;
 
 import com.jamesdube.unibot.utils.enums.Classification;
 import lombok.Data;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
-@Data
 @Entity
+@Data
 public class Degree {
 
     @Id
@@ -37,3 +39,4 @@ public class Degree {
         this.minimumPoints = minimumPoints;
     }
 }
+
