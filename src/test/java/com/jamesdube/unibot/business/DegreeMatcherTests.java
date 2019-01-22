@@ -5,12 +5,16 @@ import com.jamesdube.unibot.config.UnibotConfig;
 import com.jamesdube.unibot.domain.Degree;
 import com.jamesdube.unibot.repository.DegreeRepository;
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +25,8 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { UnibotConfig.class })
 @WebAppConfiguration
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@Transactional
 public class DegreeMatcherTests{
 
     @Autowired
@@ -28,6 +34,11 @@ public class DegreeMatcherTests{
 
     @Autowired
     private DegreeMatcherService degreeMatcherService;
+
+    @Before
+    public void before(){
+
+    }
 
     @Test
     public void itGetsDegreesBasedOnMinimumPoints(){

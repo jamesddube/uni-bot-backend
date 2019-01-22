@@ -5,7 +5,6 @@ import lombok.Data;
 
 import java.util.List;
 
-@Data
 public class RecommendationRequest {
 
     private List<SubjectRequest> subjectRequests;
@@ -15,5 +14,13 @@ public class RecommendationRequest {
         return "RecommendationRequest{" +
                 "subjectRequests=" + subjectRequests +
                 '}';
+    }
+
+    public void setSubjectRequests(List<SubjectRequest> subjectRequests) {
+        this.subjectRequests = subjectRequests;
+    }
+
+    public List<SubjectRequest> getSubjectRequests() {
+        return subjectRequests;
     }
 }

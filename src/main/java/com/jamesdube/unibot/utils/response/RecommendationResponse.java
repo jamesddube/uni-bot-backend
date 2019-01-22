@@ -23,6 +23,22 @@ public class RecommendationResponse {
         this.degrees = degrees;
     }
 
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public Classification getClassification() {
+        return classification;
+    }
+
+    public List<Degree> getDegrees() {
+        return degrees;
+    }
+
     @Override
     public String toString() {
         return "RecommendationResponse{" +

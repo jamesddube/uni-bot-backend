@@ -3,13 +3,17 @@ package com.jamesdube.unibot.controllers;
 import com.google.gson.Gson;
 import com.jamesdube.unibot.config.UnibotConfig;
 import com.jamesdube.unibot.domain.Degree;
+import com.jamesdube.unibot.domain.Subject;
 import com.jamesdube.unibot.repository.DegreeRepository;
+import com.jamesdube.unibot.repository.SubjectRepository;
 import com.jamesdube.unibot.utils.requests.RecommendationRequest;
 import com.jamesdube.unibot.utils.requests.SubjectRequest;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
@@ -17,6 +21,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Arrays;
@@ -34,6 +39,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { UnibotConfig.class })
 @WebAppConfiguration
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@Transactional
 public class RecommendationTests {
 
     @Autowired
@@ -41,6 +48,9 @@ public class RecommendationTests {
 
     @Autowired
     private DegreeRepository degreeRepository;
+
+    @Autowired
+    SubjectRepository subjectRepository;
 
     private MockMvc mockMvc;
 
@@ -58,6 +68,17 @@ public class RecommendationTests {
 
     @Test
     public void itCanGetARecommendation() throws Exception{
+
+        subjectRepository.saveAll(
+                Arrays.asList(
+                        new Subject("AMTM",SCIENCES),
+                        new Subject("AGEO",SCIENCES),
+                        new Subject("APHY",SCIENCES),
+                        new Subject("ABUS",COMMERCIALS),
+                        new Subject("AACC",COMMERCIALS)
+                )
+        );
+
         Gson gson = new Gson();
 
         RecommendationRequest recommendationRequest = new RecommendationRequest();
@@ -79,6 +100,16 @@ public class RecommendationTests {
 
     @Test
     public void aRecommendationListsDegreesThatMeetTheMinimumPointsObtained() throws Exception{
+
+        subjectRepository.saveAll(
+                Arrays.asList(
+                        new Subject("AMTM",SCIENCES),
+                        new Subject("AGEO",SCIENCES),
+                        new Subject("APHY",SCIENCES),
+                        new Subject("ABUS",COMMERCIALS),
+                        new Subject("AACC",COMMERCIALS)
+                )
+        );
 
         degreeRepository.saveAll(
                 Arrays.asList(

@@ -8,7 +8,6 @@ import com.jamesdube.unibot.utils.response.RecommendationResponse;
 
 import java.util.List;
 
-
 public class RecommendationService {
 
     private PointsService pointsService;

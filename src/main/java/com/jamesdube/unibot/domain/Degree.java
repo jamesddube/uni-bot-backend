@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
 @Entity
-@Data
 public class Degree {
 
     @Id
@@ -36,6 +35,46 @@ public class Degree {
         this.code = code;
         this.name = name;
         this.classification = classification;
+        this.minimumPoints = minimumPoints;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Classification getClassification() {
+        return classification;
+    }
+
+    public void setClassification(Classification classification) {
+        this.classification = classification;
+    }
+
+    public int getMinimumPoints() {
+        return minimumPoints;
+    }
+
+    public void setMinimumPoints(int minimumPoints) {
         this.minimumPoints = minimumPoints;
     }
 }
