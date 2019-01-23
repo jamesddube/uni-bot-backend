@@ -1,4 +1,4 @@
-package com.jamesdube.unibot.utils.enums;
+package com.jamesdube.unibot.utils;
 
 public enum Classification {
     ARTS,COMMERCIALS,SCIENCES
